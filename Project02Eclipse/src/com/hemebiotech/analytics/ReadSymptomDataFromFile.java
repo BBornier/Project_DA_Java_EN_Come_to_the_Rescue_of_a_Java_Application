@@ -13,15 +13,6 @@ import java.util.List;
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	private String filepath;
-		// private int age;
-		// private Date birthDate;
-	
-		//public ReadSymptomDataFromFile(String filepath) {
-		// super();
-		//this.filepath = filepath;
-		// this.age = age;
-		// this.birthDate = birthDate;
-
 
 	/**
 	 * 
