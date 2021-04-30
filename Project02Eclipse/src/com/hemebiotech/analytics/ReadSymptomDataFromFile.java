@@ -13,7 +13,16 @@ import java.util.List;
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	private String filepath;
+		// private int age;
+		// private Date birthDate;
 	
+		//public ReadSymptomDataFromFile(String filepath) {
+		// super();
+		//this.filepath = filepath;
+		// this.age = age;
+		// this.birthDate = birthDate;
+
+
 	/**
 	 * 
 	 * @param filepath a full or partial path to file with symptom strings in it, one per line
@@ -21,6 +30,8 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	public ReadSymptomDataFromFile (String filepath) {
 		this.filepath = filepath;
 	}
+	
+	
 	
 	@Override
 	public List<String> GetSymptoms() {
