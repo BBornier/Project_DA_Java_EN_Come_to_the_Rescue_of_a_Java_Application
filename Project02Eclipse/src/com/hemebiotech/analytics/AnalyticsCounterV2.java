@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.Collator;
 import java.util.List;
+import java.util.Map;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
 
@@ -14,16 +15,18 @@ public class AnalyticsCounterV2 {
 		try {
 			
 		/*
-		 * Cette ligne charge toutes les lignes en mémoire, dans une liste.
+		 * Cette ligne lit toutes les lignes de notre symptoms.txt, et les garde en mémoire dans une liste.
 		 */
 		List<String> lines = Files.readAllLines(Paths.get("Project02Eclipse/symptoms.txt"));
 
 		/*
-		 * Ici, on compte les doublons grâce à la Map. En paramètres, Clé (ligne) et
-		 * valeur (nb d'occurrences). Avoir instancié "TreeMap" permet de sortir les
-		 * symptômes dans l'ordre alphabétique en affichage de console.
-		 * Utilisation du comparateur avec la classe Collator. Cela prendra en compte les accents 
-		 * (si l'on veut une version du fichier result.out en français).
+		 * Ici, on compte les doublons grâce à la Map. 
+		 * En paramètres, on renseigne le type de Clé (ligne) et le type de valeur (nb d'occurrences). 
+		 * La TreeMap<> permet de sortir les symptômes dans l'ordre alphabétique et permet de
+		 * comptabiliser le nb d'occurences ave cle résultat attendu. 
+		 * J'utilise un comparateur avec la classe Collator. Cela prendra en compte les accents (si
+		 * l'on veut une version du fichier result.out en français ou dans une autre
+		 * langue).
 		 * 
 		 */
 
@@ -32,16 +35,16 @@ public class AnalyticsCounterV2 {
 		for (String symptoms : lines) {
 
 			if (comptTri.containsKey(symptoms)) {
-				// si la ligne contient déjà la ligne, on incrémente le compteur qui est associé :
+				// si la ligne contient déjà 1 ligne, on incrémente le compteur qui est associé :
 				comptTri.put(symptoms, comptTri.get(symptoms) + 1);
 			} else {
 				// sinon on ajoute l'association en initialisant le compteur à 1 (1L étant pour le type long) :
 				comptTri.put(symptoms, 1L);
 			}
 		}
-			// Sortir la liste des symptômes dans la console :
+			// Pour vérifier en sortie la liste des symptômes avec saut de ligne dans la console :
 			Files.lines(Paths.get("Project02Eclipse/symptoms.txt")).forEach(System.out::println);
-			// Sortir la TreeMap en brut dans la console :
+			// Pour vérifier en sortie la TreeMap en brut dans la console sans saut de ligne :
 			System.out.println(comptTri);
 
 		/*
@@ -50,7 +53,14 @@ public class AnalyticsCounterV2 {
 			Files.write(Paths.get("resultV2.out"), lines);
 		
 		/*
-		 * Cette partie permet d'écrire dans le fichier resultV3.out les résultats triés, à la ligne et avec le nb d'occurrences.
+		 * Cette partie permet d'écrire les résultats dans le fichier resultV3.out, triés, à la ligne et avec le nb d'occurrences
+		 * par symptôme.
+		 * La Map est ici transformée en liste.
+		 * La méthode stream() = flux. Elle permet au programme de recevoir des données et d'en renvoyer.
+		 * On prend la liste des associations de la Map. map() représente ces associations. 
+		 * Avec map(entry-> entry.getKey / entry.getValue) on récupère chaque clef et chaque valeur du stream. 
+		 * La méthode Collectors.toList collecte tous les éléments du stream dans une instance de List.  
+		 *  
 		 */
 				List<String> finallines = comptTri.entrySet()
 							.stream()
@@ -61,7 +71,7 @@ public class AnalyticsCounterV2 {
 		
 			} catch(IOException e) {
 				e.printStackTrace();
-			
+				
 		}
 	}
 }
