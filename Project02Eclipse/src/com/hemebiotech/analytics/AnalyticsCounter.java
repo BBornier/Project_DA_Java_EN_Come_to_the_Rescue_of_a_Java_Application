@@ -14,8 +14,6 @@ public class AnalyticsCounter {
 		BufferedReader reader = new BufferedReader(new FileReader("Project02Eclipse/symptoms.txt"));
 		String line = reader.readLine();
 		
-		//HashMap<String, Integer> occurrences = new HashMap<String, Integer>();
-		
 		
 		int i = 0;
 		while (line != null) {

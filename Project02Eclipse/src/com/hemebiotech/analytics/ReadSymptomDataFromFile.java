@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TreeMap;
 
 /**
  * Simple brute force implementation
@@ -24,8 +25,10 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	
 	
 	@Override
-	public List<String> GetSymptoms() {
+	// Ecriture camelCase pour getSymptoms au lieu de GetSymptoms.
+	public List<String> getSymptoms() {
 		ArrayList<String> result = new ArrayList<String>();
+		
 		
 		if (filepath != null) {
 			try {
@@ -43,6 +46,13 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		}
 		
 		return result;
+	}
+
+
+	@Override
+	public int sum(int a, int b) {
+		int c = a + b;
+		return c;
 	}
 		
 }

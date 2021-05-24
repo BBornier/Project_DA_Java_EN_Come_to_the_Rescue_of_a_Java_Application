@@ -57,8 +57,8 @@ public class AnalyticsCounterV2 {
 		 * par symptôme.
 		 * La Map est ici transformée en liste.
 		 * La méthode stream() = flux. Elle permet au programme de recevoir des données et d'en renvoyer.
-		 * On prend la liste des associations de la Map. map() représente ces associations. 
-		 * Avec map(entry-> entry.getKey / entry.getValue) on récupère chaque clef et chaque valeur du stream. 
+		 * On prend la liste des associations de la Map. map(entry->) représente ces associations. 
+		 * Avec map(entry->) on récupère chaque clef et chaque valeur du stream. 
 		 * La méthode Collectors.toList collecte tous les éléments du stream dans une instance de List.  
 		 *  
 		 */
