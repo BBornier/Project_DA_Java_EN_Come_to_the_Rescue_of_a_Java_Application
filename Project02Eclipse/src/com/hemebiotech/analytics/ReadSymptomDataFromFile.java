@@ -5,10 +5,14 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.TreeMap;
 
 /**
- * Simple brute force implementation
+ * Read the file in the correct folder,
+ * implements interface with getSymptoms method.
+ * 
+ * @see ISymptomReader
+ * 
+ * @see getSymptoms
  *
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
@@ -19,13 +23,13 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	 * 
 	 * @param filepath a full or partial path to file with symptom strings in it, one per line
 	 */
-	public ReadSymptomDataFromFile (String filepath) { // constructeur
+	public ReadSymptomDataFromFile (String filepath) { 
 		this.filepath = filepath;
 	}
 	
 	
 	@Override
-	// Ecriture camelCase pour getSymptoms au lieu de GetSymptoms.
+	
 	public List<String> getSymptoms() {
 		ArrayList<String> result = new ArrayList<String>();
 		
@@ -48,11 +52,5 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		return result;
 	}
 
-
-	@Override
-	public int sum(int a, int b) {
-		int c = a + b;
-		return c;
-	}
-		
 }
+		

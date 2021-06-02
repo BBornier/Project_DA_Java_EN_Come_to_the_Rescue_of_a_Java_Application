@@ -3,9 +3,36 @@ package com.hemebiotech.analytics;
 import java.util.List;
 import java.util.TreeMap;
 
-public class SortSymptomsData {
+	/**
+	 * Here the SortSymptomData class will use the readSymptomData Class and its methods.
+	 * It will count occurrences and sort data in an alphabetical order.  
+	 * 
+	 * @see ReadSymptomDataFromFile
+	 * 
+	 * @author BBornier
+	 * @version 5.0
+	 *
+	 */
 
-	public static void sortingSymptomsData() {
+public class SortSymptomsData {
+	
+	/** 
+	 * 
+	 * It will read the symptoms file,
+	 * @see BufferReader
+	 * 
+	 * put it in a list,
+	 * @see List
+	 * 
+	 * sort the list in alphabetical order and with occurrences number for each symptom.
+	 * It uses symptomsTri object.
+	 * 
+	 * @return symptomsTri
+	 *  
+	 */
+
+	public TreeMap<String, Integer> sortingSymptomsData() {
+		
 		ReadSymptomDataFromFile file = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");
 		file.getSymptoms();
 		List<String> symptomsFile = file.getSymptoms();
@@ -17,7 +44,7 @@ public class SortSymptomsData {
 			} else {
 				symptomsTri.put(listSymptoms, 1);
 			}
-
 		}
+			return symptomsTri;
 	}
 }

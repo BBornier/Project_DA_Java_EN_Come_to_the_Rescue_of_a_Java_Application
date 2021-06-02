@@ -18,5 +18,4 @@ public interface ISymptomReader {
 	 */
 	List<String> getSymptoms ();
 	
-	int sum(int a, int b);
 }
