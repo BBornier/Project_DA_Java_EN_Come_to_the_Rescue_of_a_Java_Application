@@ -13,7 +13,6 @@ import java.util.TreeMap;
 	 * @version 5.0
 	 *
 	 */
-
 public class SortSymptomsData {
 	
 	/** 

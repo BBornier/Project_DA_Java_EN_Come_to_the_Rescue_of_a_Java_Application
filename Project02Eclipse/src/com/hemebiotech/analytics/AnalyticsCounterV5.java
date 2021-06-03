@@ -7,38 +7,20 @@ import java.util.TreeMap;
 
 /**
  * AnalyticsCounterV5 is the main class where the program starts.
- * <p> 
- * <ul>
- * <li> It will invoke class and method that :</li>
- * <li> will read a symptom file,</li>
- * @see ReadSymptomDataFromFile
- * <li> sort symptoms,</li>
- * @see SortSymptomsData
- * <li> count occurrences</li> 
- * @see SortSymptomsData
- * <li> add occurences,</li>
- * @see SortSymptomsData
- * <li> and finally write results in a new file.</li> 
- * @see FileWriterData
- * </ul>
- * </p>
- * 
- * 
+ *
  * @author BBornier
  * @version 5.0
  */
-
 public class AnalyticsCounterV5 {
 
 	/**
-	 * Beginning of the program.
+	 * 
 	 * @param args
+	 * Beginning of the program.
 	 * 
-	 * Handle exceptions.
 	 * @throws IOException
-	 * 
+	 * Handle exceptions.
 	 */
-
 	public static void main(String[] args) throws IOException {
 		
 		/** 
