@@ -1,36 +1,50 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Map;
+import java.util.TreeMap;
 
+/**
+ * AnalyticsCounter is the main class where the program starts.
+ *
+ * @author BBornier
+ * 
+ * @version 5.0
+ */
 public class AnalyticsCounter {
 
-	public static void main(String args[]) throws Exception {
-		
-		try {
-		/* Lecture du fichier symptoms.txt via le BufferedReader */
-		BufferedReader reader = new BufferedReader(new FileReader("Project02Eclipse/symptoms.txt"));
-		String line = reader.readLine();
-		
-		
-		int i = 0;
-		while (line != null) {
-			i++;
-			System.out.println("symptom : " + line);
-			
-			line = reader.readLine(); // get another symptom
-		}
+	/**
+	 * Execute the writing of datas in the file results.out. 
+	 * <p>
+	 * Test the TreeMap with console output.
+	 * <p> 
+	 * Invoke the method writeSymptomsData that will write results in the file results.out.
+	 * <p>
+	 * Invoke our TreeMap from SortSymptomData class and check if everything
+	 * is ok with console output. The for loop is used to sort results with lines
+	 * break.
+	 * <p>
+	 * ConsoleOutput Object uses sortinSymptomsData method.
+	 * 
+	 * @throws IOException Handle exceptions.
+	 * 
+	 * @see FileWriterData
+	 * 
+	 * @see SortSymptomsData
+	 */
+	public static void main(String[] args) throws IOException {
 
-		// next generate output
-		FileWriter writer = new FileWriter("result.out");
-		writer.write("\n");
-		writer.close();
-		reader.close();
+		FileWriterData finalResult = new FileWriterData();
+		finalResult.writeSymptomsData();
+
+		SortSymptomsData consoleOutput = new SortSymptomsData();
+
+		System.out.println("Symptoms List :" + "\n");
 		
-		} catch  (IOException e) {
-			e.printStackTrace();
-		}
+		TreeMap<String, Integer> symptoms = consoleOutput.sortingSymptomsData();
+		for (Map.Entry<String, Integer> entry : symptoms.entrySet())
+			System.out.println(entry.getKey() + ": " + entry.getValue());
+
 	}
+
 }
