@@ -44,6 +44,9 @@ public class AnalyticsCounter {
 		TreeMap<String, Integer> symptoms = consoleOutput.sortingSymptomsData();
 		for (Map.Entry<String, Integer> entry : symptoms.entrySet())
 			System.out.println(entry.getKey() + ": " + entry.getValue());
+		
+		AddSymptom test = new AddSymptom();
+		test.addSymptoms();
 
 	}
 

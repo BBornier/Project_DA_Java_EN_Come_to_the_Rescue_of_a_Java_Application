@@ -1,37 +1,41 @@
 package com.hemebiotech.analytics;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.*;
+import java.util.Scanner;
 
 public class AddSymptom {
 	
-	public static void addSymptoms () {
+	public void addSymptoms () throws IOException {
 		
-		
+		String answer = "Y";
+		String symptom;
+		String filename = "./symptoms.txt";
+		File symptomFile;
 		
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Do you want to add a new symptoms in symptoms.txt ? say Y or N");
-		String answer = sc.nextLine();
+		symptomFile = new File(filename);
+		
+		System.out.println("\n" + "Do you want to add a new symptoms in symptoms.txt ? (Y/N)");
+		answer = sc.nextLine();
 		
 		if (answer == "Y") {
 			System.out.println("Please, write and enter the new symptom :");
-			String symptom = sc.nextLine();
+			symptom = sc.nextLine();
 			try {
-				FileWriter newSymptom = new FileWriter("Project02Eclipse/symptoms.txt" + "\r\n");
+				FileWriter newSymptom = new FileWriter(filename + "\r\n", true);
 				newSymptom.write(symptom);
 				newSymptom.close();
-				
 			} catch (IOException e) {
 				e.printStackTrace();
+
 			}
-		}
-			else 
-				System.out.println("Thank you for using our symptoms application. Have a good day.");
-				
 			
-		
-		
+		} else {
+			System.out.println("Thank you for using our HemeBiotech symptoms application. Have a good day.");
+		}
+			
 	}
 
 }
