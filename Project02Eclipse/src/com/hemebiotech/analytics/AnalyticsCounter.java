@@ -27,7 +27,6 @@ public class AnalyticsCounter {
 	 * ConsoleOutput Object uses sortinSymptomsData method.
 	 * 
 	 * @throws IOException Handle exceptions.
-	 * @throws ClassNotFoundException 
 	 * 
 	 * @see FileWriterData
 	 * 
