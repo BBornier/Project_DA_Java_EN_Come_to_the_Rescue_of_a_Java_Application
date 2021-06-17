@@ -22,6 +22,10 @@ public class SortSymptomsData {
 	/**
 	 * @return symptomsSort. Sort the list in alphabetical order, with occurrences
 	 *         number for each symptom. It uses symptomsSort object.
+	 *         
+	 *         TreeMap works this way : 
+	 *         If the line contained the same line/symptom, increment the associate line.
+	 *         Else, pass to the next line, add it and initialize the count to 1.
 	 */
 	public TreeMap<String, Integer> sortingSymptomsData() {
 
@@ -30,16 +34,10 @@ public class SortSymptomsData {
 
 		TreeMap<String, Integer> symptomsSort = new TreeMap<>();
 		for (String listSymptoms : symptomsFile) {
-			
-	/**
-	* If the line contained the same line/symptom, increment the associate line :
-	*/
+	
 			if (symptomsSort.containsKey(listSymptoms)) {
 				symptomsSort.put(listSymptoms, symptomsSort.get(listSymptoms) + 1);
-	
-	/**
-	* Else, pass to the next line, add it and initialize the count to 1 :
-	*/
+
 			} else {
 				symptomsSort.put(listSymptoms, 1);
 			}
